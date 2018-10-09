@@ -3,6 +3,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require('morgan');
+const session = require('express-session');
+const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const user = require('./controllers/user');
@@ -16,10 +18,29 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// sessions
+app.use(
+	session({
+		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
+		resave: false, //required
+		saveUninitialized: false //required
+	})
+);
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
+
+app.use( (req, res, next) => {
+	console.log('req.session', req.session);
+	next()
+  });
+
 // Define API routes here
-app.post('/', (req, res, next)=> {
+app.post('/signup', (req, res, next)=> {
 	console.log('server post username: ');
-	console.log(req.body.username)
+  console.log(req.body.username)
+  console.log(req.body.password)
 	res.end()
 })
 

@@ -23,8 +23,9 @@ class SignUp extends Component {
 		event.preventDefault()
 		console.log('sign-up-form, username: ');
 		console.log(this.state.username);
+		console.log(this.state.password)
 		//request to server here
-		axios.post('/', {
+		axios.post('/signup', {
 			username: this.state.username,
 			password: this.state.password
 		})
@@ -33,7 +34,7 @@ class SignUp extends Component {
 				if (response.data) {
 					console.log('successful signup')
 					this.setState({
-						redirectTo: '/login'
+						redirectTo: '/home'
 					})
 				} else {
 						console.log('Sign-up error');
