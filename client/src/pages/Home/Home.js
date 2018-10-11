@@ -11,7 +11,7 @@ import Saved from "../../components/Saved";
 import "./Home.css";
 
 
-class Search extends Component {
+class Home extends Component {
   
 
   render() {
