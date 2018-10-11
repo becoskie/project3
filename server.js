@@ -8,6 +8,7 @@ const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const user = require('./controllers/user');
+const User = require('./models/user');
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +31,15 @@ app.use(
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 app.use( (req, res, next) => {
 	console.log('req.session', req.session);
@@ -38,6 +48,12 @@ app.use( (req, res, next) => {
 
 // Define API routes here
 app.post('/signup', (req, res, next)=> {
+	console.log('server post username: ');
+  console.log(req.body.username)
+  console.log(req.body.password)
+	res.end()
+})
+app.get('/signup', (req, res, next)=> {
 	console.log('server post username: ');
   console.log(req.body.username)
   console.log(req.body.password)

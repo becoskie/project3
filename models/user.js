@@ -33,6 +33,11 @@ userSchema.pre('save', function (next) {
 
 console.log("CREATE USER:")
 
-const User = mongoose.model("User", userSchema);
+//const User = mongoose.model("User", userSchema);
+if(mongoose.models.User) {
+	User = mongoose.model("User");
+} else {
+	User = mongoose.model("User", userSchema);
+}
 
 module.exports = User;
