@@ -25,11 +25,12 @@ class SignUp extends Component {
 		console.log(this.state.username);
 		console.log(this.state.password)
 		//request to server here
-		axios.post('/signup', {
+		axios.post('/user/', {
 			username: this.state.username,
 			password: this.state.password
 		})
 			.then(response => {
+				console.log("This is the response" + response.data)
 				console.log(response)
 				if (response.data) {
 					console.log('successful signup')

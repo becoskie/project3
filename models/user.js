@@ -35,5 +35,4 @@ console.log("CREATE USER:")
 
 const User = mongoose.model("User", userSchema);
 
-
 module.exports = User;
