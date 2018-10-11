@@ -10,7 +10,8 @@ import Results from "../../components/Results";
 import Saved from "../../components/Saved";
 import "./Home.css";
 
-class Home extends Component {
+
+class Search extends Component {
   
 
   render() {
