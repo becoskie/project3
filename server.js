@@ -54,7 +54,7 @@ app.post('/signup', (req, res, next)=> {
 	res.end()
 })
 app.get('/signup', (req, res, next)=> {
-	console.log('server post username: ');
+	console.log('server get username: ');
   console.log(req.body.username)
   console.log(req.body.password)
 	res.end()
