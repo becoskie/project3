@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require('morgan');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -23,8 +22,7 @@ if (process.env.NODE_ENV === "production") {
 // sessions
 app.use(
 	session({
-    secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
-    store: new MongoStore({ mongooseConnection: dbConnection }),
+		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
 		resave: false, //required
 		saveUninitialized: false //required
 	})
