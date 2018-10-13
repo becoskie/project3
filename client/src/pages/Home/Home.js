@@ -9,96 +9,98 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import Results from "../../components/Results";
 import Saved from "../../components/Saved";
 import "./Home.css";
-
+import Card from "../../components/Card"
+import Title from "../../components/Title"
 
 class Home extends Component {
   
 
   render() {
     return (
-      <Container fluid>
-        {/* <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>NYT Search</h1>
-            </Jumbotron>
-            <form>
-              <h4>Topic</h4>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Topic"
-              />
-              <h4>Start Year</h4>
-              <Input
-                value={this.state.startYear}
-                onChange={this.handleInputChange}
-                name="startYear"
-                placeholder="start year"
-              />
-              <h4>End Year</h4>
-              <Input
-                value={this.state.endYear}
-                onChange={this.handleInputChange}
-                name="endYear"
-                placeholder="end year"
-              />
-              <FormBtn
-                disabled={!(this.state.title && this.state.startYear && this.state.endYear)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtn>
-            </form>
-          </Col>
-
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Searched Articles</h1>
-            </Jumbotron>
-            {this.state.articles.length ? (
-              <List>
-                {this.state.articles.map(article => (
-                  <Results
-                      url={article.web_url}
-                      title={article.headline.main}
-                      date={article.pub_date}
-                      key={article._id}
-                      _id={article._id}
-                      handleSaveButton = {this.handleSaveButton} 
-                  />
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-
-        </Row>
+        <Container fluid>
         <Row>
           <Col size="md-12">
-          <Jumbotron>
-              <h1>Saved Articles</h1>
-            </Jumbotron>
-            {this.state.saved.length ? (
-              <List>
-                {this.state.saved.map(article => (
-                  <Saved
-                      url={article.url}
-                      title={article.title}
-                      date={article.date}
-                      key={article._id}
-                      _id={article._id}
-                      handleDeleteButton = {this.handleDeleteButton}
-                  />
-                ))}
-              </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
+          <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Hello, world!</h1>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">LOGIN or SIGNUP &raquo;</a></p>
+      </div>
+    </div>
+          </Col>    
+        </Row>
+        <Row>
+            <Col size="md-12">
+                <Title><h2 style={{textAlign:"center"}}>Your Projects</h2></Title>
+            </Col>
+        </Row>
+        <Row>
+        
+            <Col size="md-2"></Col>
+            <Col size="md-2">
+            <Card
+                name=""
+                description=""
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name=""
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name=""
+              />
+            </Col>
+
+            <Col size="md-2">
+                <Card
+                
+              />
+            </Col>
+
+            <Col size="md-2"></Col>
+        
+        </Row>
+        <br></br><br></br>
+        <Row>
+        <Col size="md-2"></Col>
+          <Col size="md-8">
+          <Title>
+          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Make A Project Suggestion</h2>
+          </Title>
           </Col>
-        </Row> */}
+        <Col size="md-2"></Col>
+        </Row>
+        
+        <Row>
+          <Col size="md-2"></Col>
+          <Col size="md-8">
+          <form>
+            <Input 
+              placeholder="Title of project!"
+            />
+            <TextArea
+              style={{height:"125px"}} 
+              placeholder="Describe your project!"
+            />
+            <FormBtn style={{height:"125px"}}>Submit</FormBtn>
+          </form>
+          </Col>
+          <Col size="md-2"></Col>
+        </Row>
+        <br></br>
+        <Row>
+        <Col size="md-2"></Col>
+          <Col size="md-8">
+          <Title>
+          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Vote on a Project</h2>
+          </Title>
+          </Col>
+        <Col size="md-2"></Col>
+        </Row>
       </Container>
       
     );
