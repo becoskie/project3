@@ -9,12 +9,36 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import Results from "../../components/Results";
 import Saved from "../../components/Saved";
 import "./Home.css";
+import getUser from "../../utils/api";
 import Card from "../../components/Card"
 import Title from "../../components/Title"
 import Wrapper from "../../components/Wrapper"
 
+
 class Home extends Component {
   
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: ""
+    }
+  }
+  
+  componentDidMount(){
+    console.log(this.props);
+    getUser().then ( response => {
+        console.log(response.data);
+        if(response.data.user) {
+          this.setState({
+            username: response.data.user.username
+          });
+        }
+        
+    }
+
+    )
+  }
 
   render() {
     return (
@@ -89,6 +113,7 @@ class Home extends Component {
         </Row>
         <br></br><br></br>        
         <Row>
+
             <Col size="md-12">
                 <Title><h2 style={{textAlign:"center"}}>Join these Courses!</h2></Title>
             </Col>
