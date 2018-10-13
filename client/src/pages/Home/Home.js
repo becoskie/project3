@@ -66,16 +66,20 @@ class Home extends Component {
             <Col size="md-2">
                 <Card
                 name=""
+                description=""
               />
             </Col>
             <Col size="md-2">
                 <Card
                 name=""
+                description=""
               />
             </Col>
 
             <Col size="md-2">
                 <Card
+                name=""
+                description=""
                 
               />
             </Col>
@@ -83,34 +87,47 @@ class Home extends Component {
             <Col size="md-2"></Col>
         
         </Row>
-        <br></br><br></br>
+        <br></br><br></br>        
         <Row>
-        <Col size="md-2"></Col>
-          <Col size="md-8">
-          <Title>
-          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
-          Make A Project Suggestions for what you want to cover!</h2>
-          </Title>
-          </Col>
-        <Col size="md-2"></Col>
+            <Col size="md-12">
+                <Title><h2 style={{textAlign:"center"}}>Join these Courses!</h2></Title>
+            </Col>
+        </Row>
+        <Row>
+        
+            <Col size="md-2"></Col>
+            <Col size="md-2">
+            <Card
+                name="Javascript"
+                description="11AM - 1PM"
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name="JQuery"
+                description="1PM - 5PM"
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name="MYSQL"
+                description="3PM - 5PM"
+              />
+            </Col>
+
+            <Col size="md-2">
+                <Card
+                name="HTML"
+                description="6PM - 9PM"
+                
+              />
+            </Col>
+
+            <Col size="md-2"></Col>
+
+        
         </Row>
         
-        <Row>
-          <Col size="md-2"></Col>
-          <Col size="md-8">
-          <form>
-            <Input 
-            style={{textAlign:"center"}} 
-              placeholder="Title of project you would like to cover!"
-            />
-            <TextArea
-              style={{height:"125px", textAlign:"center"}} 
-              placeholder="Describe your project to all of our users to get more votes!"
-            />
-          </form>
-          </Col>
-          <Col size="md-2"></Col>
-        </Row>
       </Container>
       
     );
