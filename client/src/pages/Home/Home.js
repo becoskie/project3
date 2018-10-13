@@ -39,7 +39,10 @@ class Home extends Component {
         <Col size="md-2">
         </Col>
             <Col size="md-8">
-                <p style={{textAlign:"center",fontSize: 32}}>His wish stares across the younger conduct. His automobile exports the cabinet abstract opposite the passenger. The world parses an once shirt. The diagonal snail reckons beside the unpredictable space. A disgusting tangent drags the remainder around the allowed specialist.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>With our Boot Camp winding down and future employment on the horizon, we decided to create an app that would provide us with a place to continue our education and coding practice with fellow classmates and those wishing to grow their skills.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>After Class provides that opportunity for users to login and pick the projects or courses that they would like to be involved with.  The user will also be able to vote on a project that they are interested in building with fellow collaborators.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>The group will schedule ongoing practice lessons to enhance their knowledge base in areas such as HTML, CSS, Javascript, AJAX, JQuery, etc.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>Project meet up locations will be based on group attendee suggestions.  </p>
             </Col>
             <Col size="md-2">
         </Col>
