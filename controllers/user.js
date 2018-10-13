@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require("../models/User");
 const passport = require('../passport')
 
-router.post('/signup', (req, res) => {
+router.post('/', (req, res) => {
     console.log('user signup');
 
     const { username, password } = req.body
@@ -27,6 +27,8 @@ router.post('/signup', (req, res) => {
             })
         }
     })
+
+
 })
 
 router.post(
