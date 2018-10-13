@@ -10,6 +10,9 @@ import Results from "../../components/Results";
 import Saved from "../../components/Saved";
 import "./Home.css";
 import getUser from "../../utils/api";
+import Card from "../../components/Card"
+import Title from "../../components/Title"
+import Wrapper from "../../components/Wrapper"
 
 
 class Home extends Component {
@@ -39,91 +42,116 @@ class Home extends Component {
 
   render() {
     return (
-      <Container fluid>
-      <p>User is: {this.state.username}</p>
-        {/* <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>NYT Search</h1>
-            </Jumbotron>
-            <form>
-              <h4>Topic</h4>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Topic"
-              />
-              <h4>Start Year</h4>
-              <Input
-                value={this.state.startYear}
-                onChange={this.handleInputChange}
-                name="startYear"
-                placeholder="start year"
-              />
-              <h4>End Year</h4>
-              <Input
-                value={this.state.endYear}
-                onChange={this.handleInputChange}
-                name="endYear"
-                placeholder="end year"
-              />
-              <FormBtn
-                disabled={!(this.state.title && this.state.startYear && this.state.endYear)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtn>
-            </form>
-          </Col>
-
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Searched Articles</h1>
-            </Jumbotron>
-            {this.state.articles.length ? (
-              <List>
-                {this.state.articles.map(article => (
-                  <Results
-                      url={article.web_url}
-                      title={article.headline.main}
-                      date={article.pub_date}
-                      key={article._id}
-                      _id={article._id}
-                      handleSaveButton = {this.handleSaveButton} 
-                  />
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-
-        </Row>
+        <Container fluid>
         <Row>
           <Col size="md-12">
-          <Jumbotron>
-              <h1>Saved Articles</h1>
+            <Jumbotron>
+              <h1>
+                <strong>
+                  <i className="fa fa-newspaper-o" /> Login or Signup to meet others like you!
+                </strong>
+              </h1>
             </Jumbotron>
-            {this.state.saved.length ? (
-              <List>
-                {this.state.saved.map(article => (
-                  <Saved
-                      url={article.url}
-                      title={article.title}
-                      date={article.date}
-                      key={article._id}
-                      _id={article._id}
-                      handleDeleteButton = {this.handleDeleteButton}
-                  />
-                ))}
-              </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-          </Col>
-        </Row> */}
+          </Col>    
+        </Row>
+        <Row>
+            <Col size="md-12">
+                <Title><h1 style={{textAlign:"center"}}></h1>Our goals for You!</Title>
+            </Col>
+        </Row>
+        <Row>
+        <Col size="md-2">
+        </Col>
+            <Col size="md-8">
+                <p style={{textAlign:"center",fontSize: 32}}>With our Boot Camp winding down and future employment on the horizon, we decided to create an app that would provide us with a place to continue our education and coding practice with fellow classmates and those wishing to grow their skills.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>After Class provides that opportunity for users to login and pick the projects or courses that they would like to be involved with.  The user will also be able to vote on a project that they are interested in building with fellow collaborators.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>The group will schedule ongoing practice lessons to enhance their knowledge base in areas such as HTML, CSS, Javascript, AJAX, JQuery, etc.</p>
+                <p style={{textAlign:"center",fontSize: 32}}>Project meet up locations will be based on group attendee suggestions.  </p>
+            </Col>
+            <Col size="md-2">
+        </Col>
+        </Row>
+        <br></br>
+        <br></br>
+        <Row>
+            <Col size="md-12">
+                <Title><h2 style={{textAlign:"center"}}>Join these Projects!</h2></Title>
+            </Col>
+        </Row>
+        <Row>
+        
+            <Col size="md-2"></Col>
+            <Col size="md-2">
+            <Card
+                name=""
+                description=""
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name=""
+                description=""
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name=""
+                description=""
+              />
+            </Col>
 
+            <Col size="md-2">
+                <Card
+                name=""
+                description=""
+                
+              />
+            </Col>
+
+            <Col size="md-2"></Col>
+        
+        </Row>
+        <br></br><br></br>        
+        <Row>
+
+            <Col size="md-12">
+                <Title><h2 style={{textAlign:"center"}}>Join these Courses!</h2></Title>
+            </Col>
+        </Row>
+        <Row>
+        
+            <Col size="md-2"></Col>
+            <Col size="md-2">
+            <Card
+                name="Javascript"
+                description="11AM - 1PM"
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name="JQuery"
+                description="1PM - 5PM"
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name="MYSQL"
+                description="3PM - 5PM"
+              />
+            </Col>
+
+            <Col size="md-2">
+                <Card
+                name="HTML"
+                description="6PM - 9PM"
+                
+              />
+            </Col>
+
+            <Col size="md-2"></Col>
+
+        
+        </Row>
         
       </Container>
       
