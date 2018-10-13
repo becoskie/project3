@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import "./SignUp.css";
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
 class SignUp extends Component {
 	constructor() {
@@ -10,7 +9,6 @@ class SignUp extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
-			shouldRedirectHome: false
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,7 +25,7 @@ class SignUp extends Component {
 		console.log(this.state.username);
 		console.log(this.state.password)
 		//request to server here
-		axios.post('/user/signup', {
+		axios.post('/user/login/', {
 			username: this.state.username,
 			password: this.state.password
 		})
@@ -36,27 +34,9 @@ class SignUp extends Component {
 				console.log(response)
 				if (response.data) {
 					console.log('successful signup')
-					axios.post('/user/login', {
-						username: this.state.username,
-						password: this.state.password
+					this.setState({
+						redirectTo: '/home'
 					})
-						.then(response => {
-							console.log("This is the response" + response.data)
-							console.log(response)
-							if (response.data) {
-								console.log('successful Login')
-								this.setState({
-									shouldRedirectHome: true
-								})
-							} else {
-									console.log('Sign-up error');
-									
-								}
-						}).catch(error => {
-							console.log('Sign up server error: ')
-							console.log(error);
-						})
-					
 				} else {
 						console.log('Sign-up error');
 						
@@ -67,9 +47,7 @@ class SignUp extends Component {
 			})
 	}
 	render() {
-if(this.state.shouldRedirectHome) {
-	return <Redirect to= "/"/>;
-}
+
 		return (
 			<div className="SignupForm">
 
