@@ -47,18 +47,7 @@ app.use( (req, res, next) => {
   });
 
 // Define API routes here
-app.post('/signup', (req, res, next)=> {
-	console.log('server post username: ');
-  console.log(req.body.username)
-  console.log(req.body.password)
-	res.end()
-})
-app.get('/signup', (req, res, next)=> {
-	console.log('server get username: ');
-  console.log(req.body.username)
-  console.log(req.body.password)
-	res.end()
-})
+
 
 app.use('/user', user)
 

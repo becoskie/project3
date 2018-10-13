@@ -9,14 +9,38 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import Results from "../../components/Results";
 import Saved from "../../components/Saved";
 import "./Home.css";
+import getUser from "../../utils/api";
 
 
 class Home extends Component {
   
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: ""
+    }
+  }
+  
+  componentDidMount(){
+    console.log(this.props);
+    getUser().then ( response => {
+        console.log(response.data);
+        if(response.data.user) {
+          this.setState({
+            username: response.data.user.username
+          });
+        }
+        
+    }
+
+    )
+  }
 
   render() {
     return (
       <Container fluid>
+      <p>User is: {this.state.username}</p>
         {/* <Row>
           <Col size="md-6">
             <Jumbotron>
