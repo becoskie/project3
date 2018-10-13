@@ -56,7 +56,7 @@ class Home extends Component {
         </Row>
         <Row>
             <Col size="md-12">
-                <Title><h1 style={{textAlign:"center"}}></h1>Our goals for You!</Title>
+                <Title style={{textAlign:"center"}}>Our goals for You!</Title>
             </Col>
         </Row>
         <Row>
