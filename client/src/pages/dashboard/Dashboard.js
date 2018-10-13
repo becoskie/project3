@@ -25,7 +25,6 @@ class Dashboard extends Component {
               <h1>
                 <strong>
                   <i className="fa fa-newspaper-o" /> Welcome
-                  <i className="fa fa-newspaper-o" /> Welcome
                 </strong>
               </h1>
             </Jumbotron>
