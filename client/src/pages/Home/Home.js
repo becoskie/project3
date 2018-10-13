@@ -16,93 +16,88 @@ class Home extends Component {
 
   render() {
     return (
-      <Container fluid>
+        <Container fluid>
         {/* <Row>
-          <Col size="md-6">
+          <Col size="md-12">
             <Jumbotron>
-              <h1>NYT Search</h1>
+              <h1>
+                <strong>
+                  <i className="fa fa-newspaper-o" /> Welcome
+                  <i className="fa fa-newspaper-o" /> Welcome
+                </strong>
+              </h1>
             </Jumbotron>
-            <form>
-              <h4>Topic</h4>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Topic"
-              />
-              <h4>Start Year</h4>
-              <Input
-                value={this.state.startYear}
-                onChange={this.handleInputChange}
-                name="startYear"
-                placeholder="start year"
-              />
-              <h4>End Year</h4>
-              <Input
-                value={this.state.endYear}
-                onChange={this.handleInputChange}
-                name="endYear"
-                placeholder="end year"
-              />
-              <FormBtn
-                disabled={!(this.state.title && this.state.startYear && this.state.endYear)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtn>
-            </form>
-          </Col>
-
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Searched Articles</h1>
-            </Jumbotron>
-            {this.state.articles.length ? (
-              <List>
-                {this.state.articles.map(article => (
-                  <Results
-                      url={article.web_url}
-                      title={article.headline.main}
-                      date={article.pub_date}
-                      key={article._id}
-                      _id={article._id}
-                      handleSaveButton = {this.handleSaveButton} 
-                  />
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-
+          </Col>    
         </Row>
         <Row>
-          <Col size="md-12">
-          <Jumbotron>
-              <h1>Saved Articles</h1>
-            </Jumbotron>
-            {this.state.saved.length ? (
-              <List>
-                {this.state.saved.map(article => (
-                  <Saved
-                      url={article.url}
-                      title={article.title}
-                      date={article.date}
-                      key={article._id}
-                      _id={article._id}
-                      handleDeleteButton = {this.handleDeleteButton}
-                  />
-                ))}
-              </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
+            <Col size="md-12">
+                <Title><h2 style={{textAlign:"center"}}>Your Projects</h2></Title>
+            </Col>
+        </Row>
+        <Row>
+        
+            <Col size="md-2"></Col>
+            <Col size="md-2">
+            <Card
+                name=""
+                description=""
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name=""
+              />
+            </Col>
+            <Col size="md-2">
+                <Card
+                name=""
+              />
+            </Col>
+
+            <Col size="md-2">
+                <Card
+                
+              />
+            </Col>
+
+            <Col size="md-2"></Col>
+        
+        </Row>
+        <br></br><br></br>
+        <Row>
+        <Col size="md-2"></Col>
+          <Col size="md-8">
+          <Title>
+          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Make A Project Suggestion</h2>
+          </Title>
           </Col>
-        </Row> */}
+        <Col size="md-2"></Col>
+        </Row>
+        
+        <Row>
+          <Col size="md-2"></Col>
+          <Col size="md-8">
+          <form>
+            <Input 
+              placeholder="Title of project!"
+            />
+            <TextArea
+              style={{height:"125px"}} 
+              placeholder="Describe your project!"
+            />
+            <FormBtn style={{height:"125px"}} onClick={this.handleSubmit}>Submit</FormBtn>
+          </form>
+          </Col>
+          <Col size="md-2"></Col>
+        </Row>
+        <br></br>
+        
+         */}
       </Container>
       
     );
   }
 }
 
-export default Home;
+  export default Home;

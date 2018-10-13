@@ -12,8 +12,36 @@ import "./Dashboard.css";
 import Card from "../../components/Card"
 import Title from "../../components/Title"
 import Wrapper from "../../components/Wrapper"
+import Form from "../../components/Form"
 
 class Dashboard extends Component {
+
+  constructor(props){
+    super(props);
+    this.state= {
+      user:{},
+      title: "",
+      description: "",
+      date: {},
+      url: ""
+    }
+  }
+
+  validatePitch(title){
+    //this validates that there is something in the pitch form
+    return{
+      title: this.state.title === 0
+    };
+  }
+  componentWillMount(){
+
+  }
+  handleSubmit(event){
+    event.preventDefault()
+    console.log("this works")
+  }
+
+  // api.
   
 
   render() {
@@ -88,7 +116,7 @@ class Dashboard extends Component {
               style={{height:"125px"}} 
               placeholder="Describe your project!"
             />
-            <FormBtn style={{height:"125px"}}>Submit</FormBtn>
+            <FormBtn style={{height:"125px"}} onClick={this.handleSubmit}>Submit</FormBtn>
           </form>
           </Col>
           <Col size="md-2"></Col>
@@ -103,6 +131,11 @@ class Dashboard extends Component {
           </Title>
           </Col>
         <Col size="md-2"></Col>
+        </Row>
+        <Row>
+          <Col size="md-2"></Col>
+          <Col size="md-8" id="pitches"></Col>
+          <Col size="md-2"></Col>
         </Row>
       </Container>
       
