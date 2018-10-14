@@ -68,7 +68,7 @@ class SignUp extends Component {
 	}
 	render() {
 if(this.state.shouldRedirectHome) {
-	return <Redirect to= "/"/>;
+	return <Redirect to= "/dashboard"/>;
 }
 		return (
 			<div className="SignupForm">

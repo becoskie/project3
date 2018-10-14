@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./Login.css";
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 	constructor() {
@@ -9,6 +10,7 @@ class Login extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
+			shouldRedirectDashboard: false
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -35,7 +37,7 @@ class Login extends Component {
 				if (response.data) {
 					console.log('successful Login')
 					this.setState({
-						redirectTo: '/'
+						shouldRedirectDashboard: true
 					})
 				} else {
 						console.log('Sign-up error');
@@ -47,7 +49,9 @@ class Login extends Component {
 			})
 	}
 	render() {
-
+		if(this.state.shouldRedirectDashboard) {
+			return <Redirect to= "/dashboard"/>;
+		}
 		return (
 			<div className="LoginForm">
 
