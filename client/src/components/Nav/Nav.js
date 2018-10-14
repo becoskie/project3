@@ -21,7 +21,10 @@ const Nav = () =>
             Projects
           </a>
           <a href="/" className="navbar-brand">
-            Logout
+            Login
+          </a>
+          <a href="/" className="navbar-brand">
+            Signup
           </a>
         </span>
       </div>
