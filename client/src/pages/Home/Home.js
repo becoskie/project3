@@ -83,33 +83,26 @@ class Home extends Component {
             <Col size="md-2"></Col>
             <Col size="md-2">
             <Card
-                name=""
-                description=""
+                name="Project 3 Continuation"
+                description="Implementing all the other great ideas that could be included in this project."
+                image="https://images.pexels.com/photos/7369/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350"
               />
             </Col>
             <Col size="md-2">
-                <Card
-                name=""
-                description=""
+            <Card
+                name="React"
+                description="Who doesn't want to know more?"
+                image="https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png"
               />
             </Col>
             <Col size="md-2">
-                <Card
-                name=""
-                description=""
+            <Card
+                name="Bootstrap"
+                description="Let's get it once and for all!"
+                image="http://getbootstrap.com/docs/4.1/assets/brand/bootstrap-social.png"
               />
             </Col>
-
-            <Col size="md-2">
-                <Card
-                name=""
-                description=""
-                
-              />
-            </Col>
-
             <Col size="md-2"></Col>
-        
         </Row>
         <br></br><br></br>        
         <Row>
