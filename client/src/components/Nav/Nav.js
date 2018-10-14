@@ -20,10 +20,10 @@ const Nav = () =>
           <a href="/" className="navbar-brand">
             Projects
           </a>
-          <a href="/" className="navbar-brand">
+          <a href="/login" className="navbar-brand">
             Login
           </a>
-          <a href="/" className="navbar-brand">
+          <a href="/signup" className="navbar-brand">
             Signup
           </a>
         </span>
