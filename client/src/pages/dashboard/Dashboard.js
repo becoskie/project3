@@ -18,13 +18,13 @@ class Dashboard extends Component {
 
   render() {
     return (
+
         <Container fluid>
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>
                 <strong>
-                  <i className="fa fa-newspaper-o" /> Welcome
                   <i className="fa fa-newspaper-o" /> Welcome
                 </strong>
               </h1>
