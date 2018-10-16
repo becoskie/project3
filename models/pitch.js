@@ -4,16 +4,28 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-
-const pitchSchema = new Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  date: { type: Date, default: Date.now },
-  url: { type: String, required: true }
+//create schema 
+const PitchSchema = new Schema({
+  title: { 
+    type: String, 
+    required: true 
+  },
+  description: { 
+    type: String, 
+    required: true 
+  },
+  date: { 
+    type: Date, 
+    default: Date.now 
+  },
+  // url: { 
+  //   type: String, 
+  //   required: true 
+  // }
 });
 
-const Pitch = mongoose.model("Pitch", pitchSchema);
 
-// module.exports = Pitch; 
+const Pitch = mongoose.model("Pitch", PitchSchema);
 
-module.exports = Pitch = mongoose.model('pitch', pitchSchema);
+module.exports = Pitch;
+

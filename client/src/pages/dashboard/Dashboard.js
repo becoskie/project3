@@ -48,24 +48,24 @@ class Dashboard extends Component {
     return (
         <Container fluid>
         <Row>
+        {/* <a href="https://placeholder.com"><img src="https://via.placeholder.com/350x150"> </a> */}
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                <strong>
-                  <i className="fa fa-newspaper-o" /> Welcome
-                  <i className="fa fa-newspaper-o" /> Welcome
-                </strong>
+                <strong><i className="fa fa-user" /> Welcome</strong>
               </h1>
             </Jumbotron>
           </Col>    
         </Row>
+
+
         <Row>
             <Col size="md-12">
                 <Title><h2 style={{textAlign:"center"}}>Your Projects</h2></Title>
             </Col>
         </Row>
+
         <Row>
-        
             <Col size="md-2"></Col>
             <Col size="md-2">
             <Card
@@ -89,10 +89,9 @@ class Dashboard extends Component {
                 
               />
             </Col>
-
             <Col size="md-2"></Col>
-        
         </Row>
+
         <br></br><br></br>
         <Row>
         <Col size="md-2"></Col>

@@ -7,11 +7,14 @@ const session = require('express-session');
 const passport = require('./passport');
 
 const routes = require("./routes");
+//db config to mlab 
+// const db = require('./config/keys').mongoURI;
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 // const user = require('./controllers/user');
-
+// const pitches = require('./routes/api/pitches');
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -54,7 +57,7 @@ app.post('/signup', (req, res, next)=> {
 })
 
 // app.use('/user', user)
-// const pitchController = require(“./controllers/pitchController”);
+// const pitchController = require(./controllers/pitchController);
 // const router = new express.Router();
 // // Define any API routes first
 // // Get saved pitchs
@@ -68,12 +71,12 @@ app.post('/signup', (req, res, next)=> {
 //  res.sendFile(path.join(__dirname, “./client/build/index.html”));
 // });
 
-// app.use(router);
-// // Send every other request to the React app
-// // Define any API routes before this runs
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+// app.use(routes);
+// Send every other request to the React app
+// Define any API routes before this runs
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 const db = process.env.MONGODB_URI || "mongodb://localhost/project-3";
 mongoose.connect(db, function(error) {
@@ -87,6 +90,8 @@ mongoose.connect(db, function(error) {
   }
 });
 
+//use routes..anything that goes to api uses the pitches route
+// app.use('/api/pitch', pitch)
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
