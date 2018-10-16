@@ -26,7 +26,7 @@ class Dashboard extends Component {
         </Row>
         <Row>
             <Col size="md-12">
-                <Title><h2 style={{textAlign:"center"}}>Your Projects</h2></Title>
+                <Title style={{textAlign:"center"}}>Your Projects</Title>
             </Col>
         </Row>
         <Row>
@@ -69,9 +69,8 @@ class Dashboard extends Component {
         <Row>
         <Col size="md-2"></Col>
           <Col size="md-8">
-          <Title>
-          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
-          Make A Project Suggestion</h2>
+          <Title style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Make A Project Suggestion
           </Title>
           </Col>
         <Col size="md-2"></Col>
@@ -97,9 +96,8 @@ class Dashboard extends Component {
         <Row>
         <Col size="md-2"></Col>
           <Col size="md-8">
-          <Title>
-          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
-          Vote on a Project</h2>
+          <Title style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Vote on a Project
           </Title>
           </Col>
         <Col size="md-2"></Col>
