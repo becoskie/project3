@@ -25,15 +25,15 @@ class Login extends Component {
 		event.preventDefault()
 		console.log('sign-up-form, username: ');
 		console.log(this.state.username);
-		console.log(this.state.password)
+		//console.log(this.state.password)
 		//request to server here
 		axios.post('/user/login', {
 			username: this.state.username,
 			password: this.state.password
 		})
 			.then(response => {
-				console.log("This is the response" + response.data)
-				console.log(response)
+				//console.log("This is the response" + response.data)
+				//console.log(response)
 				if (response.data) {
 					console.log('successful Login')
 					this.setState({

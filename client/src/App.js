@@ -42,7 +42,7 @@ class App extends Component {
 
   updateUser (userObject) {
     this.setState(userObject)
-    console.log(userObject)
+    //console.log(userObject)
   }
 
   getUser() {
