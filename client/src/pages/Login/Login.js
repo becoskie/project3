@@ -90,7 +90,7 @@ class Login extends Component {
 					<div className="form-group ">
 						<div className="col-7"></div>
 						
-							<button className="btn btn-primary col-1 col-mr-auto" onClick={this.handleSubmit}>Login up</button>
+							<button className="btn btn-primary col-1 col-mr-auto" onClick={this.handleSubmit}>Login</button>
 						
 
 					</div>
