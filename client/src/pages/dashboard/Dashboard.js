@@ -4,11 +4,33 @@ import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import "./Dashboard.css";
-import Card from "../../components/Card"
-import Title from "../../components/Title"
+import Card from "../../components/Card";
+import Title from "../../components/Title";
+import getUser from "../../utils/api";
 
 class Dashboard extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: ""
+    }
+  }
+
+  componentDidMount(){
+    console.log(this.props);
+    getUser().then ( response => {
+        console.log(response.data);
+        if(response.data.user) {
+          this.setState({
+            username: response.data.user.username
+          });
+        }
+        
+    }
+
+    )
+  }
 
   render() {
     return (
@@ -18,7 +40,7 @@ class Dashboard extends Component {
             <Jumbotron>
               <h1>
                 <strong>
-                  <i className="fa fa-newspaper-o" /> Welcome
+                  <i className="fa fa-newspaper-o" /> Welcome <h1>{this.state.username}</h1>
                 </strong>
               </h1>
             </Jumbotron>
