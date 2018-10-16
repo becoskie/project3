@@ -9,10 +9,10 @@ const Card = props => (
     <div className="content">
       <ul>
         <li>
-          <strong class="projectTitle">Title:</strong> {props.name}
+          <strong id="projectTitle">Title:</strong> {props.name}
         </li>
         <li>
-          <strong class="projectDes">Description:</strong> {props.description}
+          <strong id="projectDes">Description:</strong> {props.description}
         </li>
       </ul>
     </div>
