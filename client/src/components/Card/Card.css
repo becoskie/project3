@@ -33,6 +33,6 @@
   margin-top: 18px;
 }
 
-.card > .projectTitle {
+.card > #projectTitle {
   list-style-type: none;
 }

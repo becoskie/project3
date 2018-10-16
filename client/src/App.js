@@ -9,7 +9,6 @@ import SignUp from "./pages/SignUp";
 import './App.css';
 // import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Jumbotron from "./components/Jumbotron";
 
 
 class App extends Component {

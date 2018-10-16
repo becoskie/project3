@@ -1,18 +1,11 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 // import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
-import Results from "../../components/Results";
-import Saved from "../../components/Saved";
 import "./Home.css";
 import getUser from "../../utils/api";
 import Card from "../../components/Card"
 import Title from "../../components/Title"
-import Wrapper from "../../components/Wrapper"
 
 
 class Home extends Component {
@@ -56,7 +49,7 @@ class Home extends Component {
         </Row>
         <Row>
             <Col size="md-12">
-                <Title><h1 style={{textAlign:"center"}}></h1>Our goals for You!</Title>
+                <Title style={{textAlign:"center"}}>Our goals for You!</Title>
             </Col>
         </Row>
         <Row>
@@ -75,7 +68,7 @@ class Home extends Component {
         <br></br>
         <Row>
             <Col size="md-12">
-                <Title><h2 style={{textAlign:"center"}}>Join these Projects!</h2></Title>
+                <Title style={{textAlign:"center"}}>Join these Projects!</Title>
             </Col>
         </Row>
         <Row>
@@ -108,7 +101,7 @@ class Home extends Component {
         <Row>
 
             <Col size="md-12">
-                <Title><h2 style={{textAlign:"center"}}>Join these Courses!</h2></Title>
+                <Title style={{textAlign:"center"}}>Join these Courses!</Title>
             </Col>
         </Row>
         <Row>
