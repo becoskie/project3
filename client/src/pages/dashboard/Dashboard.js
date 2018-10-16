@@ -40,7 +40,7 @@ class Dashboard extends Component {
             <Jumbotron>
               <h1>
                 <strong>
-                  <i className="fa fa-newspaper-o" /> Welcome <h1>{this.state.username}</h1>
+                  <i className="fa fa-newspaper-o" /> Welcome <h1 style={{fontWeight:"bolder", fontSize: "64px", color:"blue"}}>{this.state.username}</h1>
                 </strong>
               </h1>
             </Jumbotron>
