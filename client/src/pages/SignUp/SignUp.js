@@ -49,20 +49,23 @@ class SignUp extends Component {
 									shouldRedirectHome: true
 								})
 							} else {
+								alert('Sign-up error')
 									console.log('Sign-up error');
 									
 								}
 						}).catch(error => {
+							alert('Sign up error')
 							console.log('Sign up server error: ')
 							console.log(error);
 						})
 					
 				} else {
+					alert('Sign-up error')
 						console.log('Sign-up error');
 						
 					}
 			}).catch(error => {
-				console.log('Sign up server error: ')
+				console.log('Sign up error: ')
 				console.log(error);
 			})
 	}

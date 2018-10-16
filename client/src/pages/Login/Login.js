@@ -40,11 +40,13 @@ class Login extends Component {
 						shouldRedirectDashboard: true
 					})
 				} else {
-						console.log('Sign-up error');
+					alert('Login error')
+						console.log('Login error');
 						
 					}
 			}).catch(error => {
-				console.log('Sign up server error: ')
+				alert('Login error')
+				console.log('Login server error: ')
 				console.log(error);
 			})
 	}
