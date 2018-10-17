@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const getUser = (callback) => {
+  return axios.get("/user");
+ }
+
 const api = {
- 
+
  // Retrieves saved Pitchs from the db
  getPitch: function() {
    return axios.get("/api/saved");
@@ -16,4 +20,7 @@ const api = {
  }
 };
 
-export default api;
+export {
+  getUser,
+  api,
+}

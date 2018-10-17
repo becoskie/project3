@@ -10,7 +10,7 @@ const pitchOpen = require('./pitchOpen')
 //  As of now it's unclear which router should have a route like `/api/posts/:postId/comments`.
 //  Should it be the first entity or last?
 
-router.use(pitchRouter)
+// router.use(pitchRouter)
 
 // router.use(authCheck) // Auth Routes go after Open routes and auth middleware
 
