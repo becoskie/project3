@@ -14,7 +14,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ""
+      username: "",
+      id: ""
     }
   }
   
@@ -24,7 +25,8 @@ class Home extends Component {
         console.log(response.data);
         if(response.data.user) {
           this.setState({
-            username: response.data.user.username
+            username: response.data.user.username,
+            id: response.data.user._id
           });
         }
         
@@ -32,6 +34,10 @@ class Home extends Component {
 
     )
   }
+
+  handleJoinButton = name => {
+    console.log(`name = ${name}, userid= ${this.state.id}`);
+  };
 
   render() {
     return (
@@ -79,6 +85,7 @@ class Home extends Component {
                 name="Project 3 Continuation"
                 description="Implementing all the other great ideas."
                 image="https://images.pexels.com/photos/7369/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350"
+                handleJoinButton={this.handleJoinButton}
               />
             </Col>
             <Col size="md-3">
