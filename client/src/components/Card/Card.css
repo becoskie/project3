@@ -1,10 +1,9 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  height: 275px;
   margin: 1rem;
   position: relative;
-  width: 275px;
+  width: 100%;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
   transition: transform .25s;
