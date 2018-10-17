@@ -6,6 +6,7 @@
   width: 100%;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
+  transition: transform .25s;
 }
 
 .card > .img-container {
@@ -15,7 +16,12 @@
   background:white;
 }
 .card > .img-container > img {
-  width: 100%
+  width: 100%;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.0625) translateY(-2px);
 }
 
 .card > .content {
