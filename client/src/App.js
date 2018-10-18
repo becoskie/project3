@@ -3,12 +3,12 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import { Route, Redirect } from 'react-router';
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Dashboard from "./pages/dashboard";
 import SignUp from "./pages/SignUp";
 import './App.css';
 // import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Jumbotron from "./components/Jumbotron";
 
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      username: ""
     }
 
     this.getUser = this.getUser.bind(this)
@@ -25,12 +25,24 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getUser()
+    // // if(! this.state.username) {
+    // //   this.getUser()
+    // }
+  }
+
+  componentWillUpdate() {
+    if(! this.state.username) {
+      this.getUser()
+      console.log("Updating user");
+    }
+    window.addEventListener("popstate", function(){
+      console.log("history changed");
+    })
   }
 
   updateUser (userObject) {
     this.setState(userObject)
-    console.log(userObject)
+    //console.log(userObject)
   }
 
   getUser() {
@@ -53,15 +65,21 @@ class App extends Component {
       }
     })
   }
+
   render() {
     return (
       <Router>
     <div>
       <Nav />
       <Switch>
-      <Route exact path="/" component={Home} />
+      {/* <Route exact path="/" username={this.state.username} component={Home} /> */}
+      <Route
+        exact path='/'
+        component={() => <Home username={this.state.username} />}
+      />
       <Route exact path="/home" component={Home} />
       <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/login" component={Login} />
       <Route exact path="/dashboard" component={Dashboard} />
       </Switch>
     </div>

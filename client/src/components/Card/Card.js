@@ -4,15 +4,15 @@ import "./Card.css";
 const Card = props => (
   <div className="card">
     <div className="img-container">
-      <img alt={props.name} src={props.image} />
+      <img alt={props.name} src={props.image} onClick={() => props.handleJoinButton(props.name)}/>
     </div>
     <div className="content">
       <ul>
         <li>
-          <strong className="projectTitle">Title:</strong> {props.name}
+          <strong id="projectTitle">Title:</strong> {props.name}
         </li>
         <li>
-          <strong className="projectDes">Description:</strong> {props.description}
+          <strong id="projectDes">Description:</strong> {props.description}
         </li>
       </ul>
     </div>

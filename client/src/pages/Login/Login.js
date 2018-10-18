@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import "./SignUp.css";
+import "./Login.css";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-class SignUp extends Component {
+class Login extends Component {
 	constructor() {
 		super()
 		this.state = {
 			username: '',
 			password: '',
 			confirmPassword: '',
-			shouldRedirectHome: false
+			shouldRedirectDashboard: false
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,54 +27,35 @@ class SignUp extends Component {
 		console.log(this.state.username);
 		//console.log(this.state.password)
 		//request to server here
-		axios.post('/user/signup', {
+		axios.post('/user/login', {
 			username: this.state.username,
 			password: this.state.password
 		})
 			.then(response => {
-				console.log("This is the response" + response.data)
-				console.log(response)
+				//console.log("This is the response" + response.data)
+				//console.log(response)
 				if (response.data) {
-					console.log('successful signup')
-					axios.post('/user/login', {
-						username: this.state.username,
-						password: this.state.password
+					console.log('successful Login')
+					this.setState({
+						shouldRedirectDashboard: true
 					})
-						.then(response => {
-							console.log("This is the response" + response.data)
-							console.log(response)
-							if (response.data) {
-								console.log('successful Login')
-								this.setState({
-									shouldRedirectHome: true
-								})
-							} else {
-								alert('Sign-up error')
-									console.log('Sign-up error');
-									
-								}
-						}).catch(error => {
-							alert('Sign up error')
-							console.log('Sign up server error: ')
-							console.log(error);
-						})
-					
 				} else {
-					alert('Sign-up error')
-						console.log('Sign-up error');
+					alert('Login error')
+						console.log('Login error');
 						
 					}
 			}).catch(error => {
-				console.log('Sign up error: ')
+				alert('Login error')
+				console.log('Login server error: ')
 				console.log(error);
 			})
 	}
 	render() {
-if(this.state.shouldRedirectHome) {
-	return <Redirect to= "/dashboard"/>;
-}
+		if(this.state.shouldRedirectDashboard) {
+			return <Redirect to= "/dashboard"/>;
+		}
 		return (
-			<div className="SignupForm">
+			<div className="LoginForm">
 
 				<form className="form-horizontal">
 					<div className="form-group">
@@ -111,7 +92,7 @@ if(this.state.shouldRedirectHome) {
 					<div className="form-group ">
 						<div className="col-7"></div>
 						
-							<button className="btn btn-primary col-1 col-mr-auto" onClick={this.handleSubmit}>Sign up</button>
+							<button className="btn btn-primary col-1 col-mr-auto" onClick={this.handleSubmit}>Login</button>
 						
 
 					</div>
@@ -122,4 +103,4 @@ if(this.state.shouldRedirectHome) {
 	}
 }
 
-export default SignUp;
+export default Login;

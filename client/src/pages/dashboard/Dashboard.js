@@ -1,31 +1,28 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 // import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
-import Results from "../../components/Results";
-import Saved from "../../components/Saved";
 import "./Dashboard.css";
 import Card from "../../components/Card"
 import Title from "../../components/Title"
 import Wrapper from "../../components/Wrapper"
 import Form from "../../components/Form"
 import $ from 'jquery';
+import getUser from "../../utils/api";
 
 class Dashboard extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state= {
-      user:{},
-      title: {},
+    this.state = {
+      username: "",
+      title: "",
       description: [],
       date: {},
       url: "",
-    };
+    }
+  }
 
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -99,6 +96,22 @@ class Dashboard extends Component {
 
   
 
+
+  componentDidMount(){
+    console.log(this.props);
+    getUser().then ( response => {
+        console.log(response.data);
+        if(response.data.user) {
+          this.setState({
+            username: response.data.user.username
+          });
+        }
+        
+    }
+
+    )
+  }
+
   render() {
     return (
         <Container fluid>
@@ -116,7 +129,7 @@ class Dashboard extends Component {
 
         <Row>
             <Col size="md-12">
-                <Title><h2 style={{textAlign:"center"}}>Your Projects</h2></Title>
+                <Title style={{textAlign:"center"}}>Your Projects</Title>
             </Col>
         </Row>
 
@@ -124,24 +137,31 @@ class Dashboard extends Component {
             <Col size="md-2"></Col>
             <Col size="md-2">
             <Card
-                name=""
-                description=""
+                name="CSS"
+                description="Would like to go deeper."
+                image="https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/creative-css3-tutorials.jpg"
               />
             </Col>
             <Col size="md-2">
                 <Card
-                name=""
+                 name="ES6"
+                 description="Breaking habits."
+                 image="https://cdn-images-1.medium.com/max/1200/1*SL4sWHdjGR3vo0x5ta3xfw.jpeg"
               />
             </Col>
             <Col size="md-2">
                 <Card
-                name=""
+                name="Testing"
+                description="Pretty important."
+                image="https://mherman.org/assets/img/blog/mocha-chaijs.png"
               />
             </Col>
 
             <Col size="md-2">
-                <Card
-                
+            <Card
+                name="Java"
+                description="Start from scratch."
+                image="https://cdn-images-1.medium.com/max/960/1*ZGEUEy_SifxtHG-CSAWsZA.png"
               />
             </Col>
             <Col size="md-2"></Col>
@@ -151,9 +171,8 @@ class Dashboard extends Component {
         <Row>
         <Col size="md-2"></Col>
           <Col size="md-8">
-          <Title>
-          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
-          Make A Project Suggestion</h2>
+          <Title style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Make A Project Suggestion
           </Title>
           </Col>
         <Col size="md-2"></Col>
@@ -183,9 +202,8 @@ class Dashboard extends Component {
         <Row>
         <Col size="md-2"></Col>
           <Col size="md-8">
-          <Title>
-          <h2 style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
-          Vote on a Project</h2>
+          <Title style={{textAlign:"center", backgroundColor:"lightgrey", padding:"25px"}}>
+          Vote on a Project
           </Title>
           </Col>
         <Col size="md-2"></Col>
