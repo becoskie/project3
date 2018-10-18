@@ -1,26 +1,19 @@
 import axios from "axios";
-
-const getUser = (callback) => {
- return axios.get("/user");
+ const getUser = (callback) => {
+  return axios.get("/user");
+ }
+ const api = {
+  // Retrieves saved Pitchs from the db
+ getPitch: function() {
+   return axios.get("/api/saved");
+ },
+ // Saves a new Pitch to the db
+ savePitch: function(pitchObj) {
+   return axios.post("/api/saved", pitchObj);
+ },
+ // Deletes an Pitch from the db
+ deletePitch: function(id) {
+   return axios.delete(`/api/saved/${id}`);
+ }
 };
-
-// axios.get('/user/').then(response => {
-//     console.log('Get user response: ')
-//     console.log(response.data)
-//     if (response.data.user) {
-//       console.log('Get User: There is a user saved in the server session: ')
-
-//       this.setState({
-//         loggedIn: true,
-//         username: response.data.user.username
-//       })
-//     } else {
-//       console.log('Get user: no user');
-//       this.setState({
-//         loggedIn: false,
-//         username: null
-//       })
-//     }
-//   })
-
-  export default getUser;
+ export default getUser 
