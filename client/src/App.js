@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import { Route, Redirect } from 'react-router';
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./pages/Dashboard";
 import SignUp from "./pages/SignUp";
 import './App.css';
 // import NoMatch from "./pages/NoMatch";
