@@ -1,31 +1,14 @@
-//newly created schema in the database for pitch
+var mongoose = require("mongoose");
 
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-
-//create schema 
-const PitchSchema = new Schema({
-  title: { 
-    type: String, 
-    required: true 
-  },
-  description: { 
-    type: String, 
-    required: true 
-  },
-  date: { 
-    type: Date, 
-    default: Date.now 
-  },
-  // url: { 
-  //   type: String, 
-  //   required: true 
-  // }
+var pitchSchema = new Schema({
+  title: String,
+  description: String,
+  username: String,
+  
 });
 
-
-const Pitch = mongoose.model("Pitch", PitchSchema);
+var Pitch = mongoose.model("Pitch", pitchSchema);
 
 module.exports = Pitch;
-

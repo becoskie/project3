@@ -90,6 +90,7 @@ if(this.state.shouldRedirectHome) {
 								value={this.state.username}
 								onChange={this.handleChange}
 							/>
+							{console.log(this.state)}
 						</div>
 					</div>
 					<div className="form-group">

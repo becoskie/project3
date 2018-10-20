@@ -4,98 +4,25 @@ import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import "./Dashboard.css";
-import Card from "../../components/Card"
-import Title from "../../components/Title"
-import Wrapper from "../../components/Wrapper"
-import Form from "../../components/Form"
-import $ from 'jquery';
+import Card from "../../components/Card";
+import Title from "../../components/Title";
 import getUser from "../../utils/api";
+import API from "../../utils/pitchApi";
+import PitchContainer from "../../components/PitchContainer"
 
 class Dashboard extends Component {
-
+  
   constructor(props) {
     super(props);
     this.state = {
       username: "",
       title: "",
-      description: [],
+      description: "",
       date: {},
       url: "",
+      titlesAndDescriptions: []
     }
   }
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-  //   const $newPitchInput = $("input.new-pitch");
-  //   const $pitchContainer = $(".pitch-container");
-
-  // $(document).on("click", "button.submit", insertPitch);
-  // $(document).on("click", "button.up-vote", upVote);
-  // $(document).on("click", "button.down-vote", downVote);
-  // $(document).on("click", "button.comments", toggleComments);
-  } 
-  
-  
-
-  validatePitch(title){
-    //this validates that there is something in the pitch form
-    return{
-      title: this.state.title === 0
-    };
-  }
-  componentWillMount(){
-
-  }
-
-  //   handleChange = (event) => {
-  //       this.setState(
-  //           {title: event.target.value}
-  //       );
-  //       console.log(event.target.value)
-  //
-  //   }
-  // handleSubmit = (e) => {
-  //   // console.log("this works")
-  //     e.preventDefault();
-  //     const t = e.target.name;
-  //     // console.log(this.state.title)
-  //     this.setState({
-  //         title: t
-  //     })
-  //     console.log(t)
-  //
-  // }
-
-    handleChange = (event) => {
-        this.setState({
-            title: event.target.value,
-            // description: event.target.value
-        });
-    }
-
-    handleChange2 = (event) => {
-        this.setState({
-            // title: event.target.value,
-            description: event.target.value
-        });
-    }
-
-    handleSubmit = (event) => {
-        // alert('A name was submitted: ' + this.state.title);
-        event.preventDefault();
-        this.setState({
-            title: event.target.value
-        })
-        console.log(this.state)
-    }
-
-    pitchContainer = (props) => {
-        let titleLength = Object.keys(this.state.title).length;
-        let descriptionLength = Object.keys(this.state.description).length;
-    }
-
-  
-
 
   componentDidMount(){
     console.log(this.props);
@@ -106,34 +33,82 @@ class Dashboard extends Component {
             username: response.data.user.username
           });
         }
-        
+    
     }
 
     )
   }
 
+  handleChange = (event) => {
+    this.setState({
+        title: event.target.value,
+        // description: event.target.value
+    }); 
+}
+
+handleChange2 = (event) => {
+    this.setState({ 
+        // title: event.target.value,
+        description: event.target.value
+    });
+}
+
+handleSubmit = (event) => {
+    // alert('A name was submitted: ' + this.state.title);
+    event.preventDefault();
+    this.setState({
+        title: event.target.value,
+        description: event.target.value,
+        titlesAndDescriptions: [...this.state.titlesAndDescriptions].concat({title: this.state.title, description: this.state.description, upVote: 0, downVote: 0})
+    })
+    const userInput = {
+      title: this.state.title,
+      description:this.state.description,
+      username:this.state.username
+    };
+    console.log(userInput)
+    API.savePitch(userInput);
+}
+
+// //this is the code that needs to be finished 
+// handleUpVote = (event) => {
+//   console.log(event.target);
+//   const arrayIndex = parseInt(event.target.getAttribute("data-index"))
+//   const newtitlesAndDescriptions = this.state.titlesAndDescriptions
+//   newtitlesAndDescriptions[arrayIndex] = this.state.titlesAndDescriptions
+//   this.setState({
+
+//   })
+
+// }
+
+pitchContainer = (props) => {
+    let titleLength = Object.keys(this.state.title).value;
+    let descriptionLength = Object.keys(this.state.description).value;
+}
+
+
   render() {
     return (
         <Container fluid>
         <Row>
-        {/* <a href="https://placeholder.com"><img src="https://via.placeholder.com/350x150"> </a> */}
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                <i className="fa fa-user" /> Welcome<h1 style={{fontWeight:"bolder", fontSize: "64px", color:"blue"}}>{this.state.username}</h1>
+                <strong>
+                  <i className="fa fa-user" /> Welcome <h1 style={{fontWeight:"bolder", fontSize: "64px", color:"blue"}}>{this.state.username}</h1>
+                </strong>
               </h1>
             </Jumbotron>
           </Col>    
         </Row>
-
-
         <Row>
             <Col size="md-12">
                 <Title style={{textAlign:"center"}}>Your Projects</Title>
             </Col>
         </Row>
-
         <Row>
+        
             <Col size="md-2"></Col>
             <Col size="md-2">
             <Card
@@ -164,9 +139,10 @@ class Dashboard extends Component {
                 image="https://cdn-images-1.medium.com/max/960/1*ZGEUEy_SifxtHG-CSAWsZA.png"
               />
             </Col>
-            <Col size="md-2"></Col>
-        </Row>
 
+            <Col size="md-2"></Col>
+        
+        </Row>
         <br></br><br></br>
         <Row>
         <Col size="md-2"></Col>
@@ -181,13 +157,15 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-2"></Col>
           <Col size="md-8">
-          <form>
-            <Input 
+          <form action="POST">
+            <Input
+              // className="new-pitch"
               placeholder="Title of project!"
               onChange={this.handleChange}
               value={this.state.title}
             />
             <TextArea
+              // className="new-pitch"
               style={{height:"125px"}} 
               placeholder="Describe your project!"
               onChange={this.handleChange2}
@@ -208,11 +186,18 @@ class Dashboard extends Component {
           </Col>
         <Col size="md-2"></Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col size="md-2"></Col>
           <Col size="md-8" id="pitches">{this.pitchContainer()}</Col>
           <Col size="md-2"></Col>
+        </Row> */}
+        <Row>
+        <Col size="md-2"></Col>
+        <Col size="md-8" id="pitch-container" style={{textAlign:"center"}}>{this.state.titlesAndDescriptions.map((pair, index )=> {
+        return <PitchContainer title={pair.title} handleUpVote={this.handleUpVote} upVote={pair.upVote} index={index} description={pair.description} downVote={pair.downVote}/>})}</Col>
+        <Col size="md-2"></Col>
         </Row>
+        <br></br><br></br><br></br>
       </Container>
       
     );
