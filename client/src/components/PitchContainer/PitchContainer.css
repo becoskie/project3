@@ -1,0 +1,44 @@
+
+  #title{
+    display: inline-block;
+    margin-top: 30px;
+    color: white;
+  }
+  
+  /* up and down vote buttons */
+  button.up-vote, button.down-vote{
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+  }
+  
+  
+  #big-idea{
+    font-family: 'Open Sans Condensed', sans-serif;
+    height: 75px;
+    font-size: 25px;
+    color: white;
+    margin-top: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 0px 2px 0px;
+  }
+  ::placeholder{
+    font-size: 100px;
+  }
+  
+  .form-control::-webkit-input-placeholder { color: white; }  /* WebKit, Blink, Edge */
+  .form-control:-moz-placeholder { color: white; }  /* Mozilla Firefox 4 to 18 */
+  .form-control::-moz-placeholder { color: white; }  /* Mozilla Firefox 19+ */
+  .form-control:-ms-input-placeholder { color: white; }  /* Internet Explorer 10-11 */
+  .form-control::-ms-input-placeholder { color: white; } 
+  
+  .list-group-item {
+    line-height: 1;
+  }
+  button.comments{
+    float: right;
+  }
+  .pitch-item{
+    cursor:pointer;
+  }
